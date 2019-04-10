@@ -30,7 +30,7 @@ if (script.find("print") != -1) { // script containts print
 			}
 		}
 	}
-	if (script.find("warn") != -1) { // script containts print
+if (script.find("warn") != -1) { // script containts print
 	if (script.find("(") != -1) { // script contains (
 		vector<string>warnone = PyramidSplitString(script.c_str(), '('); // split (
 		if (warnone.at(1).find('"') != -1) { // script containts "
