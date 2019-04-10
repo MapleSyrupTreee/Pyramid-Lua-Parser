@@ -30,4 +30,15 @@ if (script.find("print") != -1) { // script containts print
 			}
 		}
 	}
+	if (script.find("warn") != -1) { // script containts print
+	if (script.find("(") != -1) { // script contains (
+		vector<string>printone = PyramidSplitString(script.c_str(), '('); // split (
+		if (printone.at(1).find('"') != -1) { // script containts "
+			vector<string>printtwo = PyramidSplitString(printone.at(1).c_str(), '"'); // split "
+		PyramidGetglobal(PyramidLua, "warn");
+		PyramidPushstring(PyramidLua, printtwo.at(1).c_str());
+		PyramidPCall(PyramidLua, 1, 0, 0);
+			}
+		}
+	}
 }
