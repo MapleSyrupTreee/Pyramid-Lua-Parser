@@ -5,7 +5,7 @@
 
 using namespace std;
 
-vector<string> PyramidSplitString(string str, string delim) // splits a string based on the deliminator seperating them
+vector<string> PyramidSplitString(string str, char delim)
 {
 	vector<string> finalstring;
 	size_t start = 0, end = 0;
@@ -18,10 +18,10 @@ vector<string> PyramidSplitString(string str, string delim) // splits a string b
 	return finalstring;
 }
 
-void Execute(string script) { // Parse lua code
+void Execute(string script) {
 if (script.find("print") != -1) { // script containts print
 	if (script.find("(") != -1) { // script contains (
-		vector<string>printone = PyramidSplitString(script.c_str(), "("); // split (
+		vector<string>printone = PyramidSplitString(script.c_str(), '('); // split (
 		if (printone.at(1).find('"') != -1) { // script containts "
 			vector<string>printtwo = PyramidSplitString(printone.at(1).c_str(), '"'); // split "
 		PyramidGetglobal(PyramidLua, "print");
